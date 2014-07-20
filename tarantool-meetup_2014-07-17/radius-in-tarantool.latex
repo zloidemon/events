@@ -1,0 +1,189 @@
+%
+% Slide template for the FreeBSD Developer Summit.
+% Take it or leave it :-)
+%
+% It requires LaTeX and LaTeX Beamer [1] to compile.
+% pdfLaTeX is recommended for compilation as it produces
+% PDF file immediately.
+%
+% $ pdflatex some.latex
+%
+%
+% It is also recommended to convert images to PDF
+% by using ImageMagick ("convert") before including them.
+%
+% [1] http://latex-beamer.sourceforge.net
+%
+
+\documentclass{beamer}
+
+\usepackage{url}
+\usepackage[english]{babel}
+\usepackage{verbatim}
+\usepackage{graphicx}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \definecolor{beamer@gker}{rgb}{0.8,0.3,0.0}
+  \setbeamercolor*{structure}{fg=beamer@gker}
+  \logo{\includegraphics[scale=0.1]{tmeetup.pdf}}
+}
+
+\title{Radius server in Tarantool}
+\author{Veniamin Gvozdikov \\ \url{vg@FreeBSD.org}}
+\institute{\includegraphics[scale=0.5]{meetup.pdf}}
+\date{Moscow \\
+July 17, 2014}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Radius server (AAA)}
+
+\begin{itemize}
+\item Authentication
+\item Authorization
+\item Accounting
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Typical service infrastructure}
+
+\bigskip
+
+\begin{center}
+\includegraphics[scale=0.5]{01.pdf}
+\end{center}
+
+\bigskip
+\bigskip
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Removing MySQL}
+
+\bigskip
+
+\begin{center}
+\includegraphics[scale=0.5]{02.pdf}
+\end{center}
+
+\bigskip
+\bigskip
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Pros and cons}
+
+\bigskip
+
+{\small
+\begin{verbatim}
+  + A bit easy to maintain
+  + New FreeRADIUS backend
+  - Need huge development effort
+  - Difficult configuration
+  - Not enough documention
+\end{verbatim}
+}
+
+\bigskip
+\bigskip
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Tarantool radius server}
+
+\bigskip
+
+\begin{center}
+\includegraphics[scale=0.5]{03.pdf}
+\end{center}
+
+\bigskip
+\bigskip
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Pros and cons}
+
+\bigskip
+
+{\small
+\begin{verbatim}
+  + One service
+  + Flexible configuration
+  + Custom business logic
+  + Faster response time
+  - Unstable
+\end{verbatim}
+}
+
+\bigskip
+\bigskip
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Radius protocol (UDP)}
+
+
+\bigskip
+
+\begin{center}
+\includegraphics[scale=0.5]{04.pdf}
+\end{center}
+
+\bigskip
+\bigskip
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Connection establishment}
+
+
+\bigskip
+
+\begin{center}
+\includegraphics[scale=0.5]{05.pdf}
+\end{center}
+
+\bigskip
+\bigskip
+
+\end{frame}
+
+
+\begin{frame}
+\begin{center}
+{\Large Thank you for your attention!} \\
+\emph{ask questions}
+\end{center}
+
+\bigskip
+\bigskip
+\bigskip
+
+\emph{Sources: }\url{https://github.com/zloidemon/tarantool-radius}
+\end{frame}
+
+\end{document}

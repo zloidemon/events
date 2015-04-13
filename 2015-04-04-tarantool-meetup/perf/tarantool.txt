@@ -1,0 +1,24 @@
+17.91%  tarantool  [kernel.kallsyms]    [k] xen_hypercall_xen_version
+ 5.35%  tarantool  tarantool            [.] propagatemark
+ 3.45%  tarantool  tarantool            [.] lj_BC_TGETS
+ 2.91%  tarantool  tarantool            [.] match
+ 2.56%  tarantool  libc-2.19.so         [.] 0x0000000000097ff0
+ 2.44%  tarantool  tarantool            [.] lj_str_new
+ 2.32%  tarantool  tarantool            [.] gc_sweep
+ 2.32%  tarantool  tarantool            [.] lj_alloc_malloc
+ 1.84%  tarantool  [kernel.kallsyms]    [k] pvclock_clocksource_read
+ 1.73%  tarantool  tarantool            [.] lj_alloc_free
+ 1.67%  tarantool  libgcc_s.so.1        [.] 0x000000000000fe5a
+ 1.61%  tarantool  libc-2.19.so         [.] vfprintf
+ 1.43%  tarantool  tarantool            [.] lj_BC_CALL
+ 0.89%  tarantool  [kernel.kallsyms]    [k] unmap_page_range
+ 0.83%  tarantool  tarantool            [.] lj_ccall_func
+ 0.77%  tarantool  libc-2.19.so         [.] memset
+ 0.71%  tarantool  tarantool            [.] lj_tab_newkey
+ 0.71%  tarantool  tarantool            [.] lj_BC_TSETS
+ 0.65%  tarantool  libpthread-2.19.so   [.] 0x000000000000f3bd
+ 0.65%  tarantool  [kernel.kallsyms]    [k] fget_light
+ 0.59%  tarantool  tarantool            [.] lj_BC_ITERN
+ 0.59%  tarantool  tarantool            [.] singlematch
+ 0.54%  tarantool  tarantool            [.] lj_BC_MOV
+ 0.54%  tarantool  tarantool            [.] lj_BC_RET

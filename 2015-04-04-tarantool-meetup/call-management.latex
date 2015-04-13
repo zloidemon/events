@@ -1,0 +1,244 @@
+%
+% Slide template for the FreeBSD Developer Summit.
+% Take it or leave it :-)
+%
+% It requires LaTeX and LaTeX Beamer [1] to compile.
+% pdfLaTeX is recommended for compilation as it produces
+% PDF file immediately.
+%
+% $ pdflatex some.latex
+%
+%
+% It is also recommended to convert images to PDF
+% by using ImageMagick ("convert") before including them.
+%
+% [1] http://latex-beamer.sourceforge.net
+%
+
+\documentclass{beamer}
+
+\usepackage{url}
+\usepackage[english]{babel}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{listings}
+
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \definecolor{beamer@gker}{rgb}{0,0,255}
+  \setbeamercolor*{structure}{fg=beamer@gker}
+  \logo{\includegraphics[scale=0.05]{cloudsfor.pdf}}
+}
+
+\title{Call Management}
+\author{Veniamin Gvozdikov \\ \url{vg@FreeBSD.org}}
+\institute{\includegraphics[scale=0.1]{cloudsfor.pdf}}
+\date{Moscow \\
+April 04, 2015}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Commercial tasks}
+
+\begin{itemize}
+\item Routing by A-Number and B-Number
+\item Call control via HTTP
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Plusofon services}
+\begin{center}
+\includegraphics[scale=0.3]{plusofon.pdf}
+\end{center}
+\begin{itemize}
+\item Smart Call (like Skype To Go)
+\item Calltracking
+\item Cloud Call Center
+\end{itemize}
+
+\bigskip
+\url{http://freecall.plusofon.ru/}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Backend requirements}
+
+\bigskip
+
+{\small
+\begin{verbatim}
+  + Asterisk Gateway Interface (AGI)
+  + HTTP support
+  + Storage
+  + Queues
+  - SQL
+\end{verbatim}
+}
+
+\bigskip
+\bigskip
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Smart call figure}
+
+\bigskip
+
+\begin{center}
+\includegraphics[scale=0.5]{01.pdf}
+\end{center}
+
+\bigskip
+\bigskip
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Calltracking figure}
+
+\bigskip
+
+\begin{center}
+\includegraphics[scale=0.5]{02.pdf}
+\end{center}
+
+\bigskip
+\bigskip
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Cloud Call Center}
+
+\bigskip
+
+\begin{center}
+\includegraphics[scale=0.5]{03.pdf}
+\end{center}
+
+\bigskip
+\bigskip
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Asterisk dialplan}
+
+\lstinputlisting[basicstyle=\footnotesize,language=C++,keywordstyle=\color{blue}]{dialplans/extensions.conf}
+
+\bigskip
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{AGI Protocol}
+
+\lstinputlisting[basicstyle=\footnotesize,keywordstyle=\color{blue}]{agi_protocol.txt}
+
+\bigskip
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Simple AGI server}
+
+\lstinputlisting[basicstyle=\footnotesize,language=C++,keywordstyle=\color{blue}]{dialplans/example.lua}
+
+\bigskip
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Benchmark by dialplans}
+
+\lstinputlisting[basicstyle=\footnotesize,language=C++,keywordstyle=\color{blue}]{benchmarks/extensions.conf}
+
+\bigskip
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Benchmark by dialplans from AGI}
+
+\lstinputlisting[basicstyle=\footnotesize,language=C++,keywordstyle=\color{blue}]{benchmarks/bench.lua}
+
+\bigskip
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Results}
+
+\begin{table}
+\begin{tabular}{l | c | c | c | c }
+Counter Name & 310 & 311 & 312 & 313 \\
+\hline
+Call Rate (cps)& 129.976 & 19.981 & 19.961 & 149.991 \\ 
+Active calls & 5000 & 460 & 375 & 0 \\
+Load average & 1.94 & 88.95 & 36.47 & 4.09 \\
+\end{tabular}
+\caption{Dialplan from INI}
+\end{table}
+\begin{table}
+\begin{tabular}{l | c | c | c | c }
+Counter Name & 320 & 321 & 322 & 323 \\
+\hline
+Call Rate (cps)& 129.980 & 19.964 & 19.959 & 150.000 \\
+Active calls & 5001 & 374 & 374 & 0 \\
+Load average & 3.25 & 43.46 & 49.18 & 2.20 \\
+\end{tabular}
+\caption{Dialplan from AGI}
+\end{table}
+
+\bigskip
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Asterisk perf report (calling 311)}
+
+\lstinputlisting[basicstyle=\tiny]{perf/asterisk.txt}
+
+\bigskip
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Tarantool perf report (calling 322)}
+
+\lstinputlisting[basicstyle=\tiny]{perf/tarantool.txt}
+
+\bigskip
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{The End}
+\begin{center}
+{\Large Thank you for your attention!} \\
+\emph{ask questions}
+\end{center}
+
+\bigskip
+\bigskip
+
+\end{frame}
+
+\end{document}

@@ -1,0 +1,16 @@
+AGI Tx >> agi_network: yes
+AGI Tx >> agi_network_script: testing
+AGI Tx >> agi_request: agi://127.0.0.1:6000/testing
+                  ... omitted ...
+AGI Tx >> agi_context: testing
+AGI Tx >> agi_extension: 322
+AGI Tx >> agi_priority: 1
+AGI Tx >> agi_enhanced: 0.0
+AGI Tx >> agi_accountcode:
+AGI Tx >> agi_threadid: 140381394708224
+AGI Tx >>
+AGI Rx << ANSWER
+AGI Tx >> 200 result=0
+AGI Rx << EXEC PLAYBACK tt-monkeys
+AGI Tx >> 200 result=0
+AGI Tx >> HANGUP

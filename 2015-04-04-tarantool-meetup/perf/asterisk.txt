@@ -1,0 +1,16 @@
+31.95%  asterisk  [kernel.kallsyms]    [k] xen_hypercall_xen_version
+ 6.59%  asterisk  libc-2.19.so         [.] 0x000000000007f041
+ 4.77%  asterisk  asterisk             [.] internal_ao2_callback
+ 2.25%  asterisk  [kernel.kallsyms]    [k] xen_hypercall_mmu_update
+ 2.19%  asterisk  libc-2.19.so         [.] vfprintf
+ 1.65%  asterisk  [kernel.kallsyms]    [k] clear_page_c
+ 1.38%  asterisk  [kernel.kallsyms]    [k] pvclock_clocksource_read
+ 1.14%  asterisk  libc-2.19.so         [.] memset
+ 1.02%  asterisk  libc-2.19.so         [.] __libc_calloc
+ 0.93%  asterisk  [kernel.kallsyms]    [k] find_vma
+ 0.75%  asterisk  [vdso]               [.] 0x00000000000007c2
+ 0.69%  asterisk  [kernel.kallsyms]    [k] get_phys_to_machine
+ 0.60%  asterisk  [kernel.kallsyms]    [k] fget_light
+ 0.57%  asterisk  libc-2.19.so         [.] mprotect
+ 0.57%  asterisk  [kernel.kallsyms]    [k] pte_mfn_to_pfn.part.13
+ 0.48%  asterisk  [kernel.kallsyms]    [k] __mem_cgroup_commit_charge
